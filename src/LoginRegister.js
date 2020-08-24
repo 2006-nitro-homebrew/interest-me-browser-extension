@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
+import fire from './secrets.js'
 /*global chrome*/
 
 class LoginRegister extends Component {
   constructor() {
     super()
     this.state = {
-      failedAttempt: false
+      email: '',
+      password: ''
     }
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState( { [event.target.name] : event.target.value } )
   }
 
   login(event) {
     event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    const response = chrome.runtime.sendMessage({type: 'login', email, password});
-    console.log('RESPONSE FROM LOGIN --->', response)
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch((err) => console.log('LOGIN ERROR -->', err))
   }
 
   register(event) {
     event.preventDefault();
-    const email = event.target.email.value
-    const password = event.target.password.value
-    const response = chrome.runtime.sendMessage({type: 'register', email, password});
-    console.log('RESPONSE FROM REGISTER --->', response)
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch((err) => console.log('REGISTER ERROR -->', err))
   }
 
   render() {
@@ -30,17 +33,17 @@ class LoginRegister extends Component {
 
       <form onSubmit={this.login} id='login-form'>
         <label htmlFor='email'>Email:</label>
-        <input type='text' name='email' />
+        <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
         <label htmlFor='password'>Password:</label>
-        <input type='password' name='password' />
+        <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
         <button type='submit'>Login</button>
       </form> :
 
-      <form id='register-form'>
+      <form onSubmit={this.register} id='register-form'>
         <label htmlFor='email'>Email:</label>
-        <input type='text' name='email' />
+        <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
         <label htmlFor='password'>Password:</label>
-        <input type='password' name='password' />
+        <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
         <button type='submit'>Register</button>
       </form>
     );
