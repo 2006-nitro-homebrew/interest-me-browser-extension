@@ -44,7 +44,7 @@ class App extends Component {
     return ( this.state.user ?
       <SaveArticle />
       :
-      <div>
+      <div id='app'>
         <h3 onClick={this.showLogin}>Login</h3>
         <h3 onClick={this.showRegister}>Register</h3>
         <LoginRegister showLogin={this.state.showLogin} />
