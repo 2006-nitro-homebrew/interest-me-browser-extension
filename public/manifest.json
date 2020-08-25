@@ -11,8 +11,8 @@
     "default_icon" : "interestMeLogo38.png"
   },
 
-  "background": {
-    "scripts": ["./src/background.js"],
-    "persistent": false
-  }
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ]
 }
