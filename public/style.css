@@ -1,7 +1,16 @@
 body {
+  width: 200px;
+  height: 200px;
+}
+
+.login-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+input {
+  width: 75px;
+  margin: 2px;
 }
