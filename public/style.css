@@ -1,16 +1,56 @@
 body {
-  width: 200px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
 }
 
 .login-form {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start; */
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  width: 130px;
+  margin: 2px;
+}
+
+.main {
+  text-align: center;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+
 }
 
-input {
-  width: 75px;
-  margin: 2px;
+button {
+  width: 138px;
+  margin: 5px;
+  text-align: center;
+}
+
+.signed-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+.on {
+  font-weight: bold;
+  border: solid;
+  background-color: black;
+  color: white;
+  border-radius: 5%;
+}
+
+.off {
+  font-weight: normal;
 }

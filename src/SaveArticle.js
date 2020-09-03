@@ -32,7 +32,7 @@ class SaveArticle extends Component {
 
   render() {
     return (
-      <div id="signed-in">
+      <div id="signed-in" className='signed-in'>
         <button onClick={this.signOut} type="submit">Sign Out</button>
         <button onClick={this.scrapePage} type="submit">Save This Article!</button>
       </div>

@@ -49,16 +49,16 @@ class LoginRegister extends Component {
   render() {
     return ( this.props.showLogin ?
 
-      <form onSubmit={this.login} id='login-form'>
+      <form onSubmit={this.login} id='login-form' className='form'>
         <label htmlFor='email'>Email:</label>
         <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
         <label htmlFor='password'>Password:</label>
         <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
-        <button type='submit'>Login</button>
+        <button type='submit'>Submit</button>
         {this.state.loginFailed ? <p>Login failed, please try again.</p> :  ''}
       </form> :
 
-      <form onSubmit={this.register} id='register-form'>
+      <form onSubmit={this.register} id='register-form' className='form'>
         <label htmlFor='email'>Email:</label>
         <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
         <label htmlFor='password'>Password:</label>
@@ -67,7 +67,7 @@ class LoginRegister extends Component {
         <input type='text' name='firstName' value={this.state.firstName} onChange={this.handleChange}/>
         <label htmlFor='lastName'>Last Name:</label>
         <input type='text' name='lastName' value={this.state.lastName} onChange={this.handleChange}/>
-        <button type='submit'>Register</button>
+        <button type='submit'>Submit</button>
       </form>
     );
   }

@@ -8,6 +8,8 @@ class App extends Component {
     super();
     this.state = {
       showLogin : true,
+      clickedLogin: 'on',
+      clickedRegister: 'off',
       user : {}
     };
     this.showLogin = this.showLogin.bind(this)
@@ -33,11 +35,17 @@ class App extends Component {
   }
 
   showLogin() {
-    this.setState({showLogin: true})
+    this.setState({
+      showLogin: true,
+      clickedLogin: 'on',
+      clickedRegister: 'off'})
   }
 
   showRegister() {
-    this.setState({showLogin: false})
+    this.setState({
+      showLogin: false,
+      clickedRegister: 'on',
+      clickedLogin: 'off'})
   }
 
   render() {
@@ -45,9 +53,11 @@ class App extends Component {
       <SaveArticle />
       :
       <div id='app'>
-        <h3 onClick={this.showLogin}>Login</h3>
-        <h3 onClick={this.showRegister}>Register</h3>
+        <div className='main'>
+        <p className={this.state.clickedLogin} onClick={this.showLogin}>Login</p>
+        <p className={this.state.clickedRegister} onClick={this.showRegister}>Register</p>
         <LoginRegister showLogin={this.state.showLogin} />
+        </div>
       </div>
     );
   }
